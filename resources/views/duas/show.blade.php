@@ -9,7 +9,7 @@
 
     <p> {{$dua->translation}} </p>
     <p> {{$dua->transliteration}} </p>
-    <div> <img src="/images/duas/{{$dua->id}}.png" alt=""> </div>
+    <div> <img class="img-fluid w-100" src="/images/duas/{{$dua->id}}.png" alt=""> </div>
     <blockquote class=" float-right"> {{$dua->reference}} </blockquote>
 
 </div>

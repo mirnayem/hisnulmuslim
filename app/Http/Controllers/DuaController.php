@@ -175,10 +175,14 @@ class DuaController extends Controller
     }
 
     public function permanentDelete($id){
-
+        
         $permanetDelete = Dua::onlyTrashed()->findOrFail($id);
-
+    
         $permanetDelete->forceDelete($permanetDelete);
+
+        $path = public_path()."/images/duas/".$permanetDelete->id.'.png';
+        unlink($path);
+
 
         return redirect('duas');
     }
