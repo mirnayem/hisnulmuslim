@@ -54,12 +54,12 @@ class DuaController extends Controller
         //image storage 
 
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image' => 'required|image|mimes:png|max:5000',
         ]);
     
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $name =$dua->id.'.jpg';
+            $name =$dua->id.'.png';
             $destinationPath = public_path('/images/duas');
             $image->move($destinationPath, $name);
         }
@@ -115,12 +115,12 @@ class DuaController extends Controller
          //image storage 
 
          $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image' => 'required|image|mimes:png|max:5000',
         ]);
     
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $name =$dua->id.'.jpg';
+            $name =$dua->id.'.png';
             $destinationPath = public_path('/images/duas');
             $image->move($destinationPath, $name);
         }
