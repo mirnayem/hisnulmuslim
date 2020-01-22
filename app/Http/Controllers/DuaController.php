@@ -48,6 +48,8 @@ class DuaController extends Controller
         
         
         $dua->save();
+
+        return redirect('duas');
     }
 
     /**
