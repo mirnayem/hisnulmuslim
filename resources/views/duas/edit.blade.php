@@ -9,7 +9,7 @@
   
 
      <div class="col-md-12">
-         <form action= " {{route('duas.update', $dua->id)}} " method="post"> 
+         <form action= " {{route('duas.update', $dua->id)}} " method="post" enctype="multipart/form-data"> 
 
             {{ method_field('patch')}}
             @csrf
@@ -45,6 +45,10 @@
               </select>
             </div>
 
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="">
+            </div>
         
             <div>
                 <button type="submit" class="btn btn-success float-left">Edit Dua</button>

@@ -34,6 +34,11 @@
                <textarea name="reference" id="" cols="30" rows="4" class="form-control"></textarea>
             </div>
 
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="">
+            </div>
+
         
             <div>
                 <button type="submit" class="btn btn-success">Create Dua</button>

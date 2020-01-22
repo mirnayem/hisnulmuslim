@@ -39,6 +39,8 @@ class DuaController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
         $dua = new Dua();
         $dua->title = $request->title;
         $dua->arabic = $request->arabic;
@@ -48,6 +50,19 @@ class DuaController extends Controller
         
         
         $dua->save();
+
+        //image storage 
+
+        $this->validate($request, [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ]);
+    
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name =$dua->id.'.jpg';
+            $destinationPath = public_path('/images/duas');
+            $image->move($destinationPath, $name);
+        }
 
         return redirect('duas');
     }
@@ -96,6 +111,19 @@ class DuaController extends Controller
         // $dua->transliteration = $request->transliteration;
         // $dua->reference = $request->reference;
         $dua->update($input);
+
+         //image storage 
+
+         $this->validate($request, [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ]);
+    
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name =$dua->id.'.jpg';
+            $destinationPath = public_path('/images/duas');
+            $image->move($destinationPath, $name);
+        }
 
         return redirect('duas');
     }
