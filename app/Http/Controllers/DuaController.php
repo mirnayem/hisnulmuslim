@@ -14,7 +14,7 @@ class DuaController extends Controller
      */
     public function index()
     {
-        $duas = Dua::all();
+        $duas = Dua::where('status', 1)->get();
 
        return view('duas.index', compact('duas'));
 
@@ -40,7 +40,6 @@ class DuaController extends Controller
     public function store(Request $request)
     {
         $dua = new Dua();
-
         $dua->title = $request->title;
         $dua->arabic = $request->arabic;
         $dua->translation = $request->translation;
@@ -86,17 +85,15 @@ class DuaController extends Controller
     public function update(Request $request, $id)
     {
 
-
-
+        $input = $request->all();
         $dua = Dua::findOrFail($id);
-
-        $dua->title = $request->title;
-        $dua->arabic = $request->arabic;
-        $dua->translation = $request->translation;
-        $dua->transliteration = $request->transliteration;
-        $dua->reference = $request->reference;
-
-        $dua->update();
+        // $dua->status = $request->status;
+        // $dua->title = $request->title;
+        // $dua->arabic = $request->arabic;
+        // $dua->translation = $request->translation;
+        // $dua->transliteration = $request->transliteration;
+        // $dua->reference = $request->reference;
+        $dua->update($input);
 
         return redirect('duas');
     }
@@ -107,8 +104,52 @@ class DuaController extends Controller
      * @param  \App\Dua  $dua
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dua $dua)
-    {
-        //
+    // public function destroy($id)
+    // {
+    //     $dua = Dua::findOrFail($id);
+
+    //     $dua->delete();
+
+    //     return redirect('duas');
+    // }
+
+
+
+    // trashed duas 
+
+    public function destroy($id){
+
+        $dua = Dua::findOrFail($id);
+
+        $dua->delete();
+
+        return redirect('duas');
+    }
+
+
+
+    public function trash(){
+
+        $trashedDuas = Dua::onlyTrashed()->get();
+
+        return view('duas.trash',compact('trashedDuas'));
+    }
+
+    public function restore($id){
+
+        $duasRestore = Dua::onlyTrashed()->findOrFail($id);
+
+        $duasRestore->restore($duasRestore);
+
+        return redirect('duas');
+    }
+
+    public function permanentDelete($id){
+
+        $permanetDelete = Dua::onlyTrashed()->findOrFail($id);
+
+        $permanetDelete->forceDelete($permanetDelete);
+
+        return redirect('duas');
     }
 }

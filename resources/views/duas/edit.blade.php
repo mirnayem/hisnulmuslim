@@ -3,7 +3,7 @@
 @section('content')
 
 
- <div class="container">
+ <div class="container pb-5">
     
          <h1 class="display-3">Edit Dua </h1>
   
@@ -36,12 +36,30 @@
                <textarea name="reference" id="" cols="30" rows="4" class="form-control"> {{$dua->reference}} </textarea>
             </div>
 
+            <div class="form-group">
+               <label for="status">Status</label>
+               <select class="form-control" name="status">
+                <option value="1" >Active</option>
+                <option value="0">Inactive</option>
+                
+              </select>
+            </div>
+
         
             <div>
-                <button type="submit" class="btn btn-success">Edit Dua</button>
+                <button type="submit" class="btn btn-success float-left">Edit Dua</button>
             </div>
            
          </form>
+
+
+         <form action=" {{route('duas.destroy' ,$dua->id)}} " method="post">
+            {{ method_field('delete') }}
+            @csrf
+         <button type="submit" class="btn btn-danger xs float-right">
+             Delete
+         </button>
+        </form>
      </div>
 
 

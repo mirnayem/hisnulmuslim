@@ -19,4 +19,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/duas/trash', 'DuaController@trash')->name('duas.trash');
+Route::get('/duas/trash/{id}/restore', 'DuaController@restore')->name('duas.restore');
+Route::get('/duas/trash/{id}/permanent_delete', 'DuaController@permanentDelete')->name('duas.permanent_delete');
+
+
+// duas route
 Route::resource('duas', 'DuaController');
+
+// admin routes
+
+
+Route::get('/admin/duas', 'AdminController@duas');
+
+

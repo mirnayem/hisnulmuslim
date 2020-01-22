@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         @foreach ($duas as $dua)
-            <p> {{$dua->title}} </p>
+          <a href=" {{route('duas.show' ,$dua->id)}} ">  <h3 class="text-center"> {{$dua->title}} </h3> </a>
         @endforeach
     </div>
 @endsection
