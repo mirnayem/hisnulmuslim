@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Dua;
 use Illuminate\Http\Request;
-
+use Intervention\Image\Facades\Image;
 class DuaController extends Controller
 {
     /**
@@ -47,6 +47,7 @@ class DuaController extends Controller
         $dua->translation = $request->translation;
         $dua->transliteration = $request->transliteration;
         $dua->reference = $request->reference;
+        $dua->audio_url = $request->audio_url;
         
         
         $dua->save();
@@ -63,6 +64,7 @@ class DuaController extends Controller
             $destinationPath = public_path('/images/duas');
             $image->move($destinationPath, $name);
         }
+
 
         return redirect('duas');
     }
@@ -122,7 +124,7 @@ class DuaController extends Controller
             $image = $request->file('image');
             $name =$dua->id.'.png';
             $destinationPath = public_path('/images/duas');
-            $image->move($destinationPath, $name);
+            $image->save($destinationPath, $name);
         }
 
         return redirect('duas');

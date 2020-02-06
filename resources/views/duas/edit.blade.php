@@ -49,6 +49,11 @@
                 <label for="image">Image</label>
                 <input type="file" name="image" id="">
             </div>
+
+            <div class="form-group">
+                <label for="audio_url">Audio</label>
+                <input type="text" name="audio_url" id="" class="">
+            </div>
         
             <div>
                 <button type="submit" class="btn btn-success float-left">Edit Dua</button>

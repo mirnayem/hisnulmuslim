@@ -13,4 +13,8 @@ class AdminController extends Controller
 
         return view('admin.duas', compact('publishedDuas', 'trashedDuas'));
     }
+
+    public function index(){
+        return view('admin.index');
+    }
 }

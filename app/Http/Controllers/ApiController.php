@@ -14,9 +14,9 @@ class ApiController extends Controller
     }
 
 
-    public function getOneDua(Dua $dua){
+    public function getOneDua($id){
 
-       $dua  = Dua::findOrFail($dua);
+       $dua  = Dua::findOrFail($id);
 
        return $dua;
     }

@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/duas' , 'ApiController@getAllDua');
 
-Route::get('/duas/{dua}' , 'ApiController@getOneDua');
+Route::get('/duas/{id}' , 'ApiController@getOneDua');
 
 
 

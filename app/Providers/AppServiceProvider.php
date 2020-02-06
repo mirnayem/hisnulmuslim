@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Dua;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*',function($view) {
+            $view->with('duas', Dua::where('status', 1)->latest()->get() );
+        
+        });
     }
 }

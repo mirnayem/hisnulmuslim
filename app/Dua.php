@@ -10,7 +10,7 @@ class Dua extends Model
 
   
     use SoftDeletes;
-    protected $fillable = ['status','title','arabic','translation','transliteration','reference'];
+    protected $fillable = ['status','title','arabic','translation','transliteration','reference','audio_url'];
 
     protected $dates = ['deleted_at'];
 }

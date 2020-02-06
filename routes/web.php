@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'homepage');
 
 Auth::routes();
 
@@ -30,6 +28,8 @@ Route::resource('duas', 'DuaController');
 // admin routes
 
 
-Route::get('/admin/duas', 'AdminController@duas');
+Route::get('/admin/duas', 'AdminController@duas')->name('admin.duas');
+
+Route::get('/admin/index', 'AdminController@index')->name('admin');
 
 
