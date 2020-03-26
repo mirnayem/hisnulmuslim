@@ -4,43 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Dua;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
 class DuaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        $duas = Dua::where('status', 1)->get();
+        $allduas = Dua::all();
 
-       return view('duas.index', compact('duas'));
+       return view('duas.index', compact('allduas'));
 
        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function create()
     {
         return view('duas.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-
-        // dd($request->all());
+        $this->validate($request, [
+            'title' => 'required ',
+            'arabic' => 'required',
+            'translation' =>'required',
+            'transliteration' => 'required',
+            'reference' => 'required',
+            'image' => 'required|image|mimes:png|max:5000',
+            'audio_url' => 'required | url',
+        ]);
+     
+    
         $dua = new Dua();
         $dua->title = $request->title;
         $dua->arabic = $request->arabic;
@@ -48,15 +45,14 @@ class DuaController extends Controller
         $dua->transliteration = $request->transliteration;
         $dua->reference = $request->reference;
         $dua->audio_url = $request->audio_url;
-        
+        $str = strtolower($request->title);
+        $dua->slug = preg_replace('/\s+/', '-', $str);
         
         $dua->save();
 
         //image storage 
 
-        $this->validate($request, [
-            'image' => 'required|image|mimes:png|max:5000',
-        ]);
+      
     
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -69,24 +65,13 @@ class DuaController extends Controller
         return redirect('duas');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Dua  $dua
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+  
+    public function show($slug)
     {
-        $dua = Dua::findOrFail($id);
-        return view('duas.show',compact('dua'));
+        $dua = Dua::where('slug', $slug)->first();
+        return view('duas.show' ,compact('dua'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Dua  $dua
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $dua = Dua::findOrFail($id);
@@ -94,65 +79,53 @@ class DuaController extends Controller
         return view('duas.edit',compact('dua')); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dua  $dua
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+   
+    public function update(Request $request, Dua $dua)
     {
-
-        $input = $request->all();
-        $dua = Dua::findOrFail($id);
-        // $dua->status = $request->status;
-        // $dua->title = $request->title;
-        // $dua->arabic = $request->arabic;
-        // $dua->translation = $request->translation;
-        // $dua->transliteration = $request->transliteration;
-        // $dua->reference = $request->reference;
-        $dua->update($input);
+        
+        // $this->validate($request, [
+        //     'title' => 'alpha | alpha_num',
+        //     'status' => 'required',
+        //     'arabic' => 'alpha | alpha_num',
+        //     'translation' =>'alpha | alpha_num',
+        //     'transliteration' => 'alpha | alpha_num',
+        //     'reference' => 'alpha | alpha_num',
+        //     'image' => 'image|mimes:png|max:5000',
+        //     'audio_url' => 'url',
+        //     'slug' => 'alpha | alpha_num'
+        // ]);
+    
+        $dua->title = $request->title;
+        $dua->arabic = $request->arabic;
+        $dua->translation = $request->translation;
+        $dua->transliteration = $request->transliteration;
+        $dua->reference = $request->reference;
+        $dua->audio_url = $request->audio_url;
+        if($request->has('title')){
+            $dua->slug = preg_replace('/\s+/', '-', strtolower($request->title));
+        }
+        $dua->update();
 
          //image storage 
-
-         $this->validate($request, [
-            'image' => 'required|image|mimes:png|max:5000',
-        ]);
     
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name =$dua->id.'.png';
             $destinationPath = public_path('/images/duas');
-            $image->save($destinationPath, $name);
+            $image->move($destinationPath, $name);
         }
-
-        return redirect('duas');
+        Session::flash('success', 'Data has been updated successfully');
+        return redirect('/admin/duas');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Dua  $dua
-     * @return \Illuminate\Http\Response
-     */
-    // public function destroy($id)
-    // {
-    //     $dua = Dua::findOrFail($id);
-
-    //     $dua->delete();
-
-    //     return redirect('duas');
-    // }
+ 
 
 
 
     // trashed duas 
 
     public function destroy($id){
-
         $dua = Dua::findOrFail($id);
-
         $dua->delete();
 
         return redirect('duas');
@@ -188,4 +161,5 @@ class DuaController extends Controller
 
         return redirect('duas');
     }
+
 }

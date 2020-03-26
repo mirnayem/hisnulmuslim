@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Role;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -16,8 +18,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+
+     'name', 'email', 'password', 'role_id','is_active',
     ];
+    
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,4 +40,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function isAdmin()
+    {
+        if ($this->role->name == 'admin' && $this->is_active == 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function userCanEdit(User $user)
+    {
+        return  $this->user_id == $user->id;
+    }
+
 }

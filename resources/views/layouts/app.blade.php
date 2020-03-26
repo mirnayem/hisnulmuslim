@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title', 'DuaZikr-Homepage')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -34,11 +34,25 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    
                     <ul class="navbar-nav mr-auto">
+                        @if(Auth::check())
+                        @if(Auth::user()->role_id == 1)
                         <li class="nav-item">
+                          
+                           
                             <a class="nav-link" href="{{ route('admin') }}">Admin</a>
+                          
+                           
                         </li>
+                        @endif
+
+                        @endif
                     </ul>
+                   
+                    
+                   
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -77,7 +91,9 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>

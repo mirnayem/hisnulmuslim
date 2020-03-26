@@ -11,9 +11,13 @@
 |
 */
 
+use App\User;
+
 Route::view('/', 'homepage');
 
 Auth::routes();
+
+Route::resource('users', 'UsersController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -25,11 +29,16 @@ Route::get('/duas/trash/{id}/permanent_delete', 'DuaController@permanentDelete')
 // duas route
 Route::resource('duas', 'DuaController');
 
+
 // admin routes
 
 
 Route::get('/admin/duas', 'AdminController@duas')->name('admin.duas');
 
 Route::get('/admin/index', 'AdminController@index')->name('admin');
+
+
+
+
 
 

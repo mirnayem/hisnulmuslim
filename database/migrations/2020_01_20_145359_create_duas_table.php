@@ -18,7 +18,7 @@ class CreateDuasTable extends Migration
             $table->tinyInteger('status')->default(1);
             $table->text('title');
             $table->text('arabic');
-            $table->text('translation')->nullable();
+            $table->text('translation');
             $table->text('transliteration')->nullable();
             $table->text('reference')->nullable();
             $table->softDeletes();

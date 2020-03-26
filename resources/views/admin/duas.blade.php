@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title','Manage Dua')
 
 @section('content')
 
@@ -14,16 +15,14 @@
              @foreach ($publishedDuas as $dua)
              <h2> <a href=" {{route("duas.show", $dua->id)}} ">{{$dua->title}}</a> </h2>
 
+            
+            {!! Form::open(['action' => ['DuaController@update', $dua->id] , 'method' => 'PATCH' , 'files' => true]) !!}
+            {!! Form::hidden('status', 0) !!}
 
-             <form action= " {{route('duas.update', $dua->id)}} " method="post"> 
-
-                {{ method_field('patch')}}
-
-                @csrf
-
-                <input type="hidden" name="status" value="0">
-                <button type="submit" class="btn btn-success btn-sm">Save as Draft</button>
-            </form>
+            <div class="form-group">
+                {!! Form::submit('Save as Draft',['class'=>'btn btn-success']) !!}
+            </div>
+            {!! Form::close() !!}
 
              @endforeach
              </div>
@@ -34,19 +33,17 @@
             <hr>
             <div class="pt-4">
             @foreach ($trashedDuas as $dua)
-            <h2> <a href=" {{route("duas.show", $dua->id)}} ">{{$dua->title}}</a> </h2>
-        
+            <h2> <a href=" {{route("duas.show", $dua->slug)}} ">{{$dua->title}}</a> </h2>
+           
+            {!! Form::open(['action' => ['DuaController@updateStatus', $dua->id] , 'method' => 'PATCH' , 'files' => true]) !!}
+     
+            {!! Form::hidden('status', 1) !!}
 
+            <div class="form-group">
+                {!! Form::submit('Save as Draft',['class'=>'btn btn-success']) !!}
+            </div>
+            {!! Form::close() !!}
 
-            <form action= " {{route('duas.update', $dua->id)}} " method="post"> 
-
-                {{ method_field('patch')}}
-                   
-                    @csrf
-    
-                    <input type="hidden" name="status" value="1">
-                    <button type="submit" class="btn btn-success btn-sm">Save as Published</button>
-                </form>
             @endforeach
 
             </div>

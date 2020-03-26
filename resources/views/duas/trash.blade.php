@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-
+@section('title','Restore Dua')
 @section('content')
 
 

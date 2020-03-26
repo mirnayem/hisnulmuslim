@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','Edit Dua')
+
 @section('content')
 
 
@@ -11,7 +13,8 @@
      <div class="col-md-12">
          <form action= " {{route('duas.update', $dua->id)}} " method="post" enctype="multipart/form-data"> 
 
-            {{ method_field('patch')}}
+            {{-- {{method_field('PATCH')}} --}}
+            @method('PATCH')
             @csrf
              <div class="form-group">
                  <label for="title">Title</label>
@@ -39,8 +42,8 @@
             <div class="form-group">
                <label for="status">Status</label>
                <select class="form-control" name="status">
-                <option value="1" >Active</option>
-                <option value="0">Inactive</option>
+                <option value="1" {{$dua->status == 'Active' ? 'selected' : ''}} >Active</option>
+                <option value="0" {{$dua->status == 'Inactive' ? 'selected' : ''}} >Inactive</option>
                 
               </select>
             </div>
@@ -52,23 +55,24 @@
 
             <div class="form-group">
                 <label for="audio_url">Audio</label>
-                <input type="text" name="audio_url" id="" class="">
+            <input type="text" name="audio_url" id="" class="form-control" value="{{$dua->audio_url}}">
             </div>
-        
+            @if ($dua->userCanEdit(Auth::user()))
             <div>
                 <button type="submit" class="btn btn-success float-left">Edit Dua</button>
             </div>
-           
+           @endif
          </form>
 
 
-         <form action=" {{route('duas.destroy' ,$dua->id)}} " method="post">
-            {{ method_field('delete') }}
-            @csrf
-         <button type="submit" class="btn btn-danger xs float-right">
-             Delete
-         </button>
-        </form>
+         {!! Form::open(['method'=>'DELETE' ,'action'=>[ 'DuaController@destroy', $dua->id],'files'=>true])
+         !!}
+         @if ($dua->userCanEdit(Auth::user()))
+         <div class="form-group">
+             {!! Form::submit('Delete Dua',['class'=>'btn btn-danger col-sm-2 float-right']) !!}
+         </div>
+         @endif
+         {!! Form::close() !!}
      </div>
 
 
