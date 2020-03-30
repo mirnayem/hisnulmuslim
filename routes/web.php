@@ -37,6 +37,8 @@ Route::get('/admin/duas', 'AdminController@duas')->name('admin.duas');
 
 Route::get('/admin/index', 'AdminController@index')->name('admin');
 
+Route::resource('tags','TagController');
+
 
 
 
