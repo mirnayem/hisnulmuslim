@@ -24,7 +24,7 @@
 </div>
 
 </div>
-
+@admin
 <div class="container w-50 py-5">
 
 
@@ -46,6 +46,8 @@
         </form>
     </div>
 </div>
+
+@endadmin
 
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Dua;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*',function($view) {
             $view->with('duas', Dua::active()->latest()->get() );
         
+        });
+
+        Blade::if('admin', function () {
+            return auth()->check() && auth()->user()->role_id == 1;
         });
     }
 }

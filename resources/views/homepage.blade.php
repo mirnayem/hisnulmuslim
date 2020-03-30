@@ -17,7 +17,9 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary"><a class="text-dark" href=" {{route('duas.show',$dua->slug)}} ">View</a></button>
+            @admin
             <button type="button" class="btn btn-sm btn-outline-secondary"> <a class="text-dark" href=" {{route('duas.edit',$dua->id)}} ">Edit</a></button>
+            @endadmin
           </div>
         </div>
       </div>
