@@ -56,9 +56,6 @@ class User extends Authenticatable
         return false;
     }
 
-    function userCanEdit(User $user)
-    {
-        return  $this->user_id == $user->id;
-    }
+   
 
 }

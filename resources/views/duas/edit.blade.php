@@ -57,21 +57,21 @@
                 <label for="audio_url">Audio</label>
             <input type="text" name="audio_url" id="" class="form-control" value="{{$dua->audio_url}}">
             </div>
-            @if ($dua->userCanEdit(Auth::user()))
+          
             <div>
                 <button type="submit" class="btn btn-success float-left">Edit Dua</button>
             </div>
-           @endif
+         
          </form>
 
 
          {!! Form::open(['method'=>'DELETE' ,'action'=>[ 'DuaController@destroy', $dua->id],'files'=>true])
          !!}
-         @if ($dua->userCanEdit(Auth::user()))
+        
          <div class="form-group">
              {!! Form::submit('Delete Dua',['class'=>'btn btn-danger col-sm-2 float-right']) !!}
          </div>
-         @endif
+       
          {!! Form::close() !!}
      </div>
 

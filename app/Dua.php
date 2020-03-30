@@ -50,8 +50,4 @@ class Dua extends Model
     }
 
 
-    function userCanEdit(User $user)
-    {
-        return  $this->user_id == $user->id;
-    }
 }
