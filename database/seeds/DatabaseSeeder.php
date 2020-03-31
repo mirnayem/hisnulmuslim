@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Dua;
+use App\Tag;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,5 +17,14 @@ class DatabaseSeeder extends Seeder
         $this->call(DuasTableSeeder::class);
         $this->call(RolesTableSeeder::class);
         $this->call(TagTableSeeder::class);
+
+        $tags = Tag::all();
+
+        // Populate the pivot table
+        Dua::all()->each(function ($dua) use ($tags) { 
+            $dua->tags()->sync(
+                $tags->random(rand(1, 2))->pluck('id')->toArray()
+            ); 
+        });
     }
 }

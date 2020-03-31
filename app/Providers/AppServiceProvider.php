@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*',function($view) {
-            $view->with('duas', Dua::active()->latest()->get() );
+            $view->with('duas', Dua::active()->latest()->get());
         
         });
 

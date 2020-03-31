@@ -15,6 +15,7 @@ class CreateDuasTable extends Migration
     {
         Schema::create('duas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->tinyInteger('weigh')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->text('title');
             $table->text('arabic');

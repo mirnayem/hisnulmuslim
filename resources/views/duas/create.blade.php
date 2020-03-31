@@ -2,6 +2,7 @@
 
 @section('title','Create Dua')
 
+
 @section('content')
 
 
@@ -20,6 +21,15 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
              </div>
+             <div class="form-group {{ $errors->has('tags') ? 'has-error' : ''}}">
+                {!! Form::label('tags','Tags:') !!}
+                <select class="form-control js-example-basic-multiple" multiple="multiple" name="tags[]">
+                    @foreach($tags as $tag)
+                    <option value="{{$tag->id}}"> {{$tag->name}} </option>
+                    @endforeach
+                </select>
+                {!! $errors->first('tags', '<p class="help-block text-danger ">:message</p>') !!}
+            </div>
              <div class="form-group">
                 <label for="arabic">Arabic</label>
                <textarea name="arabic" id="" cols="30" rows="6" class="form-control" class="@error('arabic') is-invalid @enderror"> {{old('arabic')}} </textarea>
@@ -76,4 +86,15 @@
 
  </div>
 
+@endsection
+
+
+@section('javascript')
+
+<script>
+      
+      $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+});
+</script>
 @endsection

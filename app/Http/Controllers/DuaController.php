@@ -6,6 +6,8 @@ use App\Dua;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
+use App\Tag;
+
 class DuaController extends Controller
 {
    
@@ -20,13 +22,14 @@ class DuaController extends Controller
 
   
     public function create()
-    {
-        return view('duas.create');
+    {   $tags = Tag::all();
+        return view('duas.create',compact('tags'));
     }
 
    
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'title' => 'required ',
             'arabic' => 'required',
@@ -60,7 +63,7 @@ class DuaController extends Controller
             $destinationPath = public_path('/images/duas');
             $image->move($destinationPath, $name);
         }
-
+        $dua->tags()->sync($request->tags);
 
         return redirect('duas');
     }
@@ -75,8 +78,8 @@ class DuaController extends Controller
     public function edit($id)
     {
         $dua = Dua::findOrFail($id);
-
-        return view('duas.edit',compact('dua')); 
+        $tags = Tag::all();
+        return view('duas.edit',compact('dua','tags')); 
     }
 
    
@@ -114,6 +117,7 @@ class DuaController extends Controller
             $destinationPath = public_path('/images/duas');
             $image->move($destinationPath, $name);
         }
+        $dua->tags()->sync($request->tags);
         Session::flash('success', 'Data has been updated successfully');
         return redirect('/admin/duas');
     }

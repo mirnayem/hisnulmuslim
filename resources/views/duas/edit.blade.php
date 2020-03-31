@@ -20,6 +20,17 @@
                  <label for="title">Title</label>
                  <textarea name="title" id="" cols="30" rows="4" class="form-control"> {{$dua->title}} </textarea>
              </div>
+
+             <div class="form-group {{ $errors->has('tags') ? 'has-error' : ''}}">
+                {!! Form::label('tags','Tags:') !!}
+                <select class="form-control js-example-basic-multiple" multiple="multiple" name="tags[]">
+                    @foreach($tags as $tag)
+                    <option value="{{$tag->id}}"> {{$tag->name}} </option>
+                    @endforeach
+                </select>
+                {!! $errors->first('tags', '<p class="help-block text-danger ">:message</p>') !!}
+            </div>
+
              <div class="form-group">
                 <label for="arabic">Arabic</label>
                <textarea name="arabic" id="" cols="30" rows="6" class="form-control"> {{$dua->arabic}} </textarea>
