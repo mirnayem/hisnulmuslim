@@ -10,20 +10,17 @@
     <title>@yield('title', 'DuaZikr-Homepage')</title>
   
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="vendor/select2/dist/js/select2.min.js"></script>
    
-
+    
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-    @yield('styles')
+    
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -100,7 +97,11 @@
             </div>
         </main>
     </div>
-    @yield('javascript')
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    @yield('js')
+   
+
 </body>
 
 

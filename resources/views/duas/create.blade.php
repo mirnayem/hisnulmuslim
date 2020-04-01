@@ -2,7 +2,9 @@
 
 @section('title','Create Dua')
 
-
+@section('css')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/>
+@endsection
 @section('content')
 
 
@@ -23,7 +25,7 @@
              </div>
              <div class="form-group {{ $errors->has('tags') ? 'has-error' : ''}}">
                 {!! Form::label('tags','Tags:') !!}
-                <select class="form-control js-example-basic-multiple" multiple="multiple" name="tags[]">
+                <select class="form-control" id="addtag" multiple="multiple" name="tags[]">
                     @foreach($tags as $tag)
                     <option value="{{$tag->id}}"> {{$tag->name}} </option>
                     @endforeach
@@ -85,16 +87,20 @@
 
 
  </div>
+ @section('js')
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+
+
+ <script>
+ 
+ $(document).ready(function() {
+   $('#addtag').select2({
+       tags:true
+   });
+   });
+ </script>
+ @endsection
 
 @endsection
 
 
-@section('javascript')
-
-<script>
-      
-      $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-});
-</script>
-@endsection
