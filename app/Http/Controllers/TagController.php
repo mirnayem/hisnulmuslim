@@ -132,7 +132,8 @@ class TagController extends Controller
 
 
     public function dua_by_tag(Tag $tag)
-    {
+    {  
+        
         $duasbytag = $tag->duas;
 
        return view('duabytag', compact('duasbytag'));

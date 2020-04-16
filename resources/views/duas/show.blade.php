@@ -7,7 +7,7 @@
     <div class="col-2 pt-3">
         <div>
             @foreach ($tags as $tag)
-                <h5><a class="text-secondary" href=" {{route('duatag', $tag)}} "> {{$tag->name}} </a> </h5>
+                <h5><a class="text-secondary" href=" {{route('duatag', $tag->slug)}} "> {{$tag->name}} </a> </h5>
                 <hr>
             @endforeach
         </div>
