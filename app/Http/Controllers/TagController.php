@@ -11,7 +11,7 @@ class TagController extends Controller
     {
         $this->middleware(['auth','admin']);
     }
-    public function index()
+    public function index(Tag $tag)
     {
         $tags = Tag::all();
 
