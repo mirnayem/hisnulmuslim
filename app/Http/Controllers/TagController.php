@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware(['auth','admin']);
+    }
     public function index()
     {
         $tags = Tag::all();
@@ -39,16 +38,27 @@ class TagController extends Controller
     {
         $this->validate($request, [
             'name' => "required|unique:tags|min:3 ",
+            'photo' => "image|mimes:png|max:512"
           
         ]); 
 
         $tag = new Tag();
 
         $tag->name = $request->name;
+        $str = strtolower($request->name);
+        $tag->slug = preg_replace('/\s+/', '-', $str);
+
+
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $name =$tag->id.'.png';
+            $destinationPath = public_path('/images/tags');
+            $image->move($destinationPath, $name);
+        }
 
         $tag->save();
 
-        return redirect('/tags');
+        return redirect('/');
 
     
     }
@@ -86,14 +96,25 @@ class TagController extends Controller
     {
         $this->validate($request, [
             'name' =>" unique:tags|min:3 ",
+            'photo' => "image|mimes:png|max:512"
           
         ]); 
 
         $tag->name = $request->name;
+        if($request->has('name')){
+            $tag->slug = preg_replace('/\s+/', '-', strtolower($request->title));
+        }
+
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $name =$tag->id.'.png';
+            $destinationPath = public_path('/images/tags');
+            $image->move($destinationPath, $name);
+        }
 
         $tag->update();
 
-        return redirect('/tags');
+        return redirect('/');
     }
 
     /**
@@ -106,6 +127,14 @@ class TagController extends Controller
     {
         $tag->delete();
 
-        return redirect('/tags');
+        return redirect('/');
+    }
+
+
+    public function dua_by_tag(Tag $tag)
+    {
+        $duasbytag = $tag->duas;
+
+       return view('duabytag', compact('duasbytag'));
     }
 }

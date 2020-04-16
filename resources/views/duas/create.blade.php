@@ -72,6 +72,14 @@
             </div>
 
             <div class="form-group">
+                <label for="sound">Audio</label>
+                <input type="file" name="sound" id="" class="form-control" class="@error('sound') is-invalid @enderror">
+                @error('sound')
+               <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+            </div>
+
+            <div class="form-group">
                 <label for="audio_url">Audio</label>
                 <input type="text" name="audio_url" id="" class="form-control" value="{{old('audio_url')}}" class="@error('audio_url') is-invalid @enderror">
                 @error('audio_url')

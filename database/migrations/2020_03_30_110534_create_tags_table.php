@@ -17,6 +17,7 @@ class CreateTagsTable extends Migration
             $table->bigIncrements('id');
             $table->tinyInteger('weigh')->default(0);
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

@@ -68,7 +68,18 @@
 
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" name="image" id="">
+                <input type="file" name="image" id="" class="form-control" class="@error('image') is-invalid @enderror">
+                @error('image')
+               <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="sound">Audio</label>
+                <input type="file" name="sound" id="" class="form-control" class="@error('sound') is-invalid @enderror">
+                @error('sound')
+               <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
             </div>
 
             <div class="form-group">

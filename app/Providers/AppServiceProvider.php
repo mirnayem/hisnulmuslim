@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Dua;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use App\Tag;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*',function($view) {
-            $view->with('duas', Dua::active()->latest()->get());
+            $view->with('duas', Dua::active()->latest()->get())->with('tags', Tag::all());
         
         });
 

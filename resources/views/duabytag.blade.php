@@ -33,14 +33,14 @@
   <div class="col-2 pt-3">
         <div>
             @foreach ($tags as $tag)
-                <h5><a class="text-secondary" href=" {{route('duatag', $tag->slug)}} "> {{$tag->name}} </a> </h5>
+                <h5>  <a class="text-secondary" href=" {{route('duatag', $tag->slug)}} "> {{$tag->name}} </a> </h5>
                 <hr>
             @endforeach
         </div>
   </div>
 
-  <div class="col-10">
-    @foreach ($duas as $dua)
+  <div class="col-9">
+    @foreach ($duasbytag as $dua)
     <div class="col-12">
     
      <div class="card-body">

@@ -10,6 +10,11 @@ use App\Tag;
 
 class DuaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth','admin'])->except(['index','show']);
+    }
    
     public function index()
     {
@@ -36,8 +41,9 @@ class DuaController extends Controller
             'translation' =>'required',
             'transliteration' => 'required',
             'reference' => 'required',
-            'image' => 'required|image|mimes:png|max:5000',
-            'audio_url' => 'required | url',
+            'image' => 'image|mimes:png|max:5000',
+            'audio_url' => 'nullable | url',
+            'sound' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav |max:2024'
         ]);
      
     
@@ -63,9 +69,17 @@ class DuaController extends Controller
             $destinationPath = public_path('/images/duas');
             $image->move($destinationPath, $name);
         }
+
+
+        if ($request->hasFile('sound')) {
+            $sound = $request->file('sound');
+            $name =$dua->id.'.mp3';
+            $destinationPath = public_path('/audios/duas');
+            $sound->move($destinationPath, $name);
+        }
         $dua->tags()->sync($request->tags);
 
-        return redirect('duas');
+        return redirect('/');
     }
 
   
@@ -119,7 +133,7 @@ class DuaController extends Controller
         }
         $dua->tags()->sync($request->tags);
         Session::flash('success', 'Data has been updated successfully');
-        return redirect('/admin/duas');
+        return redirect('/');
     }
 
  

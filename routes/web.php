@@ -39,6 +39,8 @@ Route::get('/admin/index', 'AdminController@index')->name('admin');
 
 Route::resource('tags','TagController');
 
+Route::get('/duabytag/{tag}', 'TagController@dua_by_tag')->name('duatag');
+
 
 
 

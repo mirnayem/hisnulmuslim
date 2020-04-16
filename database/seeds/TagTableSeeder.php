@@ -16,31 +16,43 @@ class TagTableSeeder extends Seeder
         $tag1 = new Tag();
 
         $tag1->name = 'Food';
+        $str = strtolower($tag1->name);
+        $tag1->slug = preg_replace('/\s+/', '-', $str);
         $tag1->save();
        
         $tag2 = new Tag();
 
         $tag2->name = 'Sleep';
+        $str = strtolower($tag2->name);
+        $tag2->slug = preg_replace('/\s+/', '-', $str);
         $tag2->save();
 
         $tag3 = new Tag();
 
         $tag3->name = 'Salat';
+        $str = strtolower($tag3->name);
+        $tag3->slug = preg_replace('/\s+/', '-', $str);
         $tag3->save();
 
         $tag4 = new Tag();
 
         $tag4->name = 'Fasting';
+        $str = strtolower($tag4->name);
+        $tag4->slug = preg_replace('/\s+/', '-', $str);
         $tag4->save();
 
         $tag5 = new Tag();
 
         $tag5->name = 'Ramadan';
+        $str = strtolower($tag5->name);
+        $tag5->slug = preg_replace('/\s+/', '-', $str);
         $tag5->save();
 
         $tag6 = new Tag();
 
         $tag6->name = 'Hajj';
+        $str = strtolower($tag6->name);
+        $tag6->slug = preg_replace('/\s+/', '-', $str);
         $tag6->save();
     }
 }

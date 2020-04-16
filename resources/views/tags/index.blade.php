@@ -13,6 +13,13 @@
                <div class="alert alert-danger">{{ $message }}</div>
               @enderror
             </div>
+            <div class="form-group">
+              <label for="photo">Image</label>
+              <input type="file" name="photo" id="" class="form-control" class="@error('photo') is-invalid @enderror">
+              @error('photo')
+             <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+          </div>
             <div>
                 <button type="submit" class="btn btn-success">Create Tag</button>
             </div>
