@@ -11,7 +11,7 @@
   
 
      <div class="col-md-12">
-         <form action= " {{route('tags.update', $tag->id)}} " method="post" enctype="multipart/form-data"> 
+         <form action= " {{route('tags.update', $tag->slug)}} " method="post" enctype="multipart/form-data"> 
             @method('PATCH')
             @csrf
             <div class="form-group">
@@ -36,7 +36,7 @@
          </form>
 
 
-         {!! Form::open(['method'=>'DELETE' ,'action'=>[ 'TagController@destroy', $tag->id],'files'=>true])
+         {!! Form::open(['method'=>'DELETE' ,'action'=>[ 'TagController@destroy', $tag->slug],'files'=>true])
          !!}
         
          <div class="form-group">

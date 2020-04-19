@@ -52,8 +52,8 @@
        
         <tr>
           <th scope="row">{{ $number++ }}</th>
-          <td> <a class="text-dark" href="">  {{$tag->name}} </a> </td>
-          <td> <a class="text-dark" href=" {{route('tags.edit', $tag->id)}} ">Edit </a> </td>
+          <td> {{$tag->name}} </td>
+          <td> <a class="text-dark" href=" {{route('tags.edit', $tag)}} ">Edit </a> </td>
         </tr>
         @endforeach
       

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TagController extends Controller
 {
@@ -47,7 +48,7 @@ class TagController extends Controller
         $tag->name = $request->name;
         $str = strtolower($request->name);
         $tag->slug = preg_replace('/\s+/', '-', $str);
-
+        $tag->save();
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -56,7 +57,7 @@ class TagController extends Controller
             $image->move($destinationPath, $name);
         }
 
-        $tag->save();
+       
 
         return redirect('/');
 
@@ -95,15 +96,18 @@ class TagController extends Controller
     public function update(Request $request, Tag $tag)
     {
         $this->validate($request, [
-            'name' =>" unique:tags|min:3 ",
+            'name' =>"min:3 ",
             'photo' => "image|mimes:png|max:512"
           
         ]); 
 
         $tag->name = $request->name;
         if($request->has('name')){
-            $tag->slug = preg_replace('/\s+/', '-', strtolower($request->title));
+            $tag->slug = preg_replace('/\s+/', '-', strtolower($request->name));
         }
+        $tag->update();
+
+        Storage::delete('images/tags/'.$tag->id.'.png');
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -112,7 +116,7 @@ class TagController extends Controller
             $image->move($destinationPath, $name);
         }
 
-        $tag->update();
+        
 
         return redirect('/');
     }
