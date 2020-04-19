@@ -107,7 +107,6 @@ class TagController extends Controller
         }
         $tag->update();
 
-        Storage::delete('images/tags/'.$tag->id.'.png');
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
@@ -130,6 +129,8 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         $tag->delete();
+        $path = public_path()."/images/tags/".$tag->id.'.png';
+        unlink($path);
 
         return redirect('/');
     }
