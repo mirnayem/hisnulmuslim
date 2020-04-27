@@ -41,6 +41,8 @@ Route::resource('tags','TagController');
 
 Route::get('/duabytag/{tag}', 'TagController@dua_by_tag')->name('duatag');
 
+Route::get('/search', 'DuaController@search')->name('search');
+
 
 
 

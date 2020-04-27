@@ -2,13 +2,14 @@
 
 
 @section('content')
+
 @include('inc.add_dua_tag')
    
 <div class="row">
  @include('inc.tagsidebar')
 
-  <div class="col-9">
-    @foreach ($duasbytag as $dua)
+  <div class="col-10">
+    @foreach ($duasearch as $dua)
     <div class="col-12">
     
      <div class="card-body">

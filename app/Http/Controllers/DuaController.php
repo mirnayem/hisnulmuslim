@@ -180,4 +180,25 @@ class DuaController extends Controller
         return redirect('duas');
     }
 
+
+
+
+    public function search(Request $request)
+    {
+        $request->validate([
+            'search' => 'required | min:2',
+        ]);
+
+      
+        $search = $request->input('search');
+        $translation = Dua::where('translation', 'like', "%$search%");
+        $duasearch = Dua::where('title', 'like', "%$search%")->union($translation)->orWhereHas('tags', function ($q) use ($search) {
+            return $q->where('name', 'like', '%' . $search . '%');
+        })->get();
+   
+       
+
+        return view('pages.search', compact('duasearch'));
+    }
+
 }

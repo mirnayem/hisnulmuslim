@@ -4,14 +4,7 @@
 @section('content')
  <div class="row">
 
-    <div class="col-2 pt-3">
-        <div>
-            @foreach ($tags as $tag)
-                <h5><a class="text-secondary" href=" {{route('duatag', $tag)}} "><span><img height="35px" width="35px" src="/images/tags/{{$tag->id}}.png"/></span>  {{$tag->name}} </a> </h5>
-                <hr>
-            @endforeach
-        </div>
-  </div>
+ @include('inc.tagsidebar')
 
   <div class="col-10 pt-3">
     <div class="d-flex justify-content-center py-1" >

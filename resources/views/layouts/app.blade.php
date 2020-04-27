@@ -57,6 +57,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <form  method="GET" action=" {{url('/search')}} ">
+                            @csrf
+                            <input type="text" class="form-control" name="search"
+                                placeholder="Search">
+                         
+                        </form>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
