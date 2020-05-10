@@ -7,7 +7,7 @@
 <div class="row">
  @include('inc.tagsidebar')
 
-  <div class="col-8">
+  <div class="col-8 pt-2">
     @foreach ($duasbytag as $dua)
     <div class="col-12">
     
