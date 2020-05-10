@@ -84,9 +84,12 @@ class DuaController extends Controller
 
   
     public function show($slug)
-    {
+    {   
         $dua = Dua::where('slug', $slug)->first();
-        return view('duas.show' ,compact('dua'));
+        $previous = Dua::where('id', '<', $dua->id)->orderBy('id', 'desc')->first();
+        $next = Dua::where('id', '>', $dua->id)->orderBy('id')->first();
+        
+        return view('duas.show' ,compact('dua','previous','next'));
     }
 
     public function edit($id)

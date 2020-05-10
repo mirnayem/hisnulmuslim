@@ -16,15 +16,16 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
+    <link rel="stylesheet" href="{{asset('css/style.css')}} ">
+    
     @yield('css')
 </head>
-<body>
+<body id="duazikr">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light " id="duazikrnavbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     DuaZikr
@@ -50,6 +51,17 @@
 
                         @endif
                     </ul>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <form  method="GET" action=" {{url('/search')}} ">
+                                @csrf
+                                <input id="searchbox" type="text" class="form-control" name="search"
+                                    placeholder="Search">
+                                    <span class="glyphicon glyphicon-search"></span>
+                            </form>
+                        </li>
+                    </ul>
                    
                     
                    
@@ -58,12 +70,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <form  method="GET" action=" {{url('/search')}} ">
-                            @csrf
-                            <input type="text" class="form-control" name="search"
-                                placeholder="Search">
-                         
-                        </form>
+                       
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -98,8 +105,8 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class="container">
+        <main>
+            <div id="duazikrcontent">
               @yield('content') 
             </div>
         </main>

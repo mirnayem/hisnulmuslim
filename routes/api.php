@@ -19,7 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/duas' , 'ApiController@getAllDua');
+Route::get('/duas/{id}' , 'ApiController@getOneDua');
 
+
+Route::get('/tags' , 'ApiController@getAllTag');
+Route::get('/tags/{id}' , 'ApiController@getOneTag');
+Route::post('/tags/store', 'ApiController@storeTag');
+Route::patch('/tags/{id}', 'ApiController@updateTag');
+Route::delete('/tags/{id}', 'ApiController@deleteTag');
 Route::get('/duas/{id}' , 'ApiController@getOneDua');
 
 

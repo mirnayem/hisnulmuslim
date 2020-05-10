@@ -6,7 +6,21 @@
 
  @include('inc.tagsidebar')
 
-  <div class="col-10 pt-3">
+  <div class="col-8 mt-5">
+    <div class="navigation-wrap justify-content-between d-flex">
+        <div class="float-left">
+            @if (isset($previous))
+            <a class="prev" href="{{route('duas.show',$previous->slug)}} "> <img src="https://img.icons8.com/ios-filled/50/000000/chevron-left.png"/>  </a>
+            @endif
+        </div>
+        <div class='float-right'>
+            @if(isset($next))
+            <a class="next" href="{{route('duas.show',$next->slug)}} "><img src="https://img.icons8.com/ios-filled/50/000000/chevron-right.png"/></a>
+            @endif
+        </div>
+    </div>
+
+
     <div class="d-flex justify-content-center py-1" >
         <h2>{{$dua->title}} </h2>
         
@@ -26,28 +40,36 @@
     </div>
   
     <div class="d-flex justify-content-center py-1">
-        <p class="text-info">{{$dua->reference}} </p> 
+        <p>{{$dua->reference}} </p> 
     </div>
+
+    @admin
+     <div class="row px-5">
+    <div class="col-6 ">
+        <a class="btn btn-success xs float-left" href=" {{route('duas.edit', $dua->id)}}  ">Edit</a>
+    </div>
+    <div class="col-6">
+        <form action=" {{route('duas.destroy' ,$dua->id)}} " method="post" onclick="return confirm('Are you sure you want to delete this item?');">
+            {{ method_field('delete') }}
+            @csrf
+         <button type="submit" class="btn btn-danger xs float-right">
+             Delete
+         </button>
+
+         
+        </form>
+    </div>
+     </div>
+@endadmin
   </div>
+       
+
+ 
+
  </div>
-   @admin
-    <div class="row">
-        <div class="col-md-6 d-flex justify-content-center">
-            <a class="btn btn-success xs float-left" href=" {{route('duas.edit', $dua->id)}}  ">Edit</a>
-        </div>
-        <div class="col-md-6 d-flex justify-content-center">
-            <form action=" {{route('duas.destroy' ,$dua->id)}} " method="post" onclick="return confirm('Are you sure you want to delete this item?');">
-                {{ method_field('delete') }}
-                @csrf
-             <button type="submit" class="btn btn-danger xs float-right">
-                 Delete
-             </button>
-    
-             
-            </form>
-        </div>
-    </div>
-    @endadmin
+ 
+
+
  
 
 @endsection

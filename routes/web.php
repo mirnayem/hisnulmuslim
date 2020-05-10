@@ -11,9 +11,12 @@
 |
 */
 
-use App\User;
+// use App\User;
+// Route::view('vuewelcome', 'vue.welcome');
+// Route::view('vuetags', 'vue.tags');
 
 Route::view('/', 'homepage');
+Route::view('/welcome', 'welcome');
 
 Auth::routes();
 
