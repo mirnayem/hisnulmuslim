@@ -141,6 +141,6 @@ class TagController extends Controller
         
         $duasbytag = $tag->duas;
 
-       return view('duabytag', compact('duasbytag'));
+       return view('duabytag', compact('duasbytag','tag'));
     }
 }

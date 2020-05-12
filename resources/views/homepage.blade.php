@@ -8,17 +8,17 @@
 <div class="row">
  @include('inc.tagsidebar')
 
-  <div class="col-8 pt-2">
+  <div class="col-md-8 pt-4">
+    <h1 class="text-center pb-4">All Duas</h1>
     @foreach ($duas as $dua)
     <div class="col-12">
     
-     <div class="card-body">
+     <div class="duatitle">
        <h3 class="card-title"> <a href=" {{route('duas.show', $dua->slug)}} ">{{$dua->title}}</a></h3>
-       <h5 class="card-text">{{$dua->arabic}}</h5>
      </div>
     
    </div>
-   <hr>
+  
     @endforeach
   </div>
 </div>

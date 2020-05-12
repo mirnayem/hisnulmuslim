@@ -1,8 +1,8 @@
 #duazikr {
-    background-color: teal;
+    background: #269180;
     color: #fff;
-  
   }
+
 
    #duazikrcontent {
      padding:10px 40px;
@@ -13,37 +13,163 @@
   }
 
   #duazikrnavbar {
-      height: 100px;
-      background-color: #20b2aa;
+      height: 150px;
+      background-color: #2EAA92;  
+      
   }
+
+  @media only screen and (max-width: 992px) {
+    #duazikrnavbar {
+      height: auto;
+      background-color: #2EAA92;  
+      
+  }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .tagsidebar {
+      display: none;
+          
+      }
+
+      .duabodycontent {
+          text-align: center;
+      }
+  }
+
+
+
+  .fa-search {
+    top: 50px;
+    left: 847px;
+    width: 36px;
+    height: 36px;
+    border: 3px solid #7DD9B1;
+    opacity: 1;
+  }
+
+  .duatitle {
+    margin: 16px 0px;
+    background-color: #55D4B2;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
 
   #tagbox {
       margin: 16px 0px;
-      background-color: #20b2aa;
-      padding: 10px 20px;
+      background-color: #55D4B2;
+      padding: 24px 20px;
       border-radius: 10px;
   }
 
+
+  .tagsidebar {
+    background-color: #2faf9a;
+  }
+  .dua_title{
+    font: Normal 50px/66px SolaimanLipi;
+    letter-spacing: 0px;
+    color: #fff;
+    opacity: 1;
+  }
+
+  .duaarabic {
+    font-family:adobe arabic;
+    font-size:30px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+  }
+
+  .duatranslation {
+    font: Normal 30px/41px SolaimanLipi;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+  }
+
+  .duatranslitaration {
+    text-align: center;
+    font: Normal 20px/27px SolaimanLipi;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 0.8;
+  }
+
+  .duareference {
+
+    text-align: center;
+    font: Normal 16px SolaimanLipi;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 0.8;
+  }
+
   #duatagbox {
-      height: 250px;
-      width: 200px;
-      background-color: #20b2aa;
+      height: 270px;
+      width: 250px;
       padding: 20px;
       margin: 20px;
       text-align: center;
-      border-radius: 10px;
+      background: #55D4B2 0% 0% no-repeat padding-box;
+      box-shadow: 0px 6px 6px #00000029;
+      border-radius: 20px;
+      opacity: 1;
+  }
+
+  #duatagbox img {
+    margin-top: 30px;
   }
 
   #duatagbox p{
       font-size: 30px;
-      margin-top: 30px;
+      text-align: center;
+      margin-top: 55px;
   }
 
-  input[type=text] {
-    background-color: white; 
-    background-position: 10px 10px;
-    padding-left: 40px;
-    width: 400px;
+  .fa-home {
+    top: 53px;
+    left: 350px;
+    width: 48px;
     height: 40px;
-    border-radius: 20px;
+    opacity: 1;
+    
+  }
+  .fa-chevron-left , .fa-chevron-right {
+    color: #026e5c;
+ }
+
+
+  .fa-chevron-left:hover , .fa-chevron-right:hover {
+     color: #fff;
+  }
+
+  #fixedbutton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+}
+ 
+ #searchbox input[type=text] {
+    top: 37px;
+    width: 500px;
+    height: 50px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    font-size: 24px;
+    border-radius: 35px;
+    opacity: 1;
+  }
+
+  #searchbox ::placeholder{
+
+      letter-spacing: 0px;
+      color: #7DD9B0;
+      opacity: 1;
+  }
+
+
+  .navtext {
+
+    font-size: 30px;
   }

@@ -16,19 +16,20 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
     <link rel="stylesheet" href="{{asset('css/style.css')}} ">
-    
+
     @yield('css')
 </head>
 <body id="duazikr">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light " id="duazikrnavbar">
+        <nav class="navbar navbar-expand-lg navbar-light " id="duazikrnavbar">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/homepage') }}">
-                    DuaZikr
+                <a  class="navbar-brand" href="{{ url('/') }}">
+                    <i class="fa fa-home fa-3x " aria-hidden="true"></i> 
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -38,27 +39,28 @@
                     <!-- Left Side Of Navbar -->
                     
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link navtext" href="{{ route('allduas') }}">All Duas</a>
+                        </li>
                         @if(Auth::check())
                         @if(Auth::user()->role_id == 1)
                         <li class="nav-item">
-                          
-                           
-                            <a class="nav-link" href="{{ route('admin') }}">Admin</a>
-                          
-                           
+                            <a class="nav-link navtext" href="{{ route('admin') }}">Admin</a>
                         </li>
                         @endif
 
                         @endif
                     </ul>
 
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ">
                         <li class="nav-item">
                             <form  method="GET" action=" {{url('/search')}} ">
                                 @csrf
-                                <input id="searchbox" type="text" class="form-control" name="search"
-                                    placeholder="Search">
-                                    <span class="glyphicon glyphicon-search"></span>
+                                <div id="searchbox">
+                                    <input  type="text" class="form-control" name="search"
+                                    placeholder="Search here">
+                                </div>
+                        
                             </form>
                         </li>
                     </ul>
@@ -74,11 +76,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link navtext" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link navtext" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -88,7 +90,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item text-secondary" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
