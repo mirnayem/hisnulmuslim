@@ -10,6 +10,7 @@
 
   #duazikr a{
       color:#fff;
+      text-decoration: none;
   }
 
   #duazikrnavbar {
@@ -18,24 +19,6 @@
       
   }
 
-  @media only screen and (max-width: 992px) {
-    #duazikrnavbar {
-      height: auto;
-      background-color: #2EAA92;  
-      
-  }
-  }
-
-  @media only screen and (max-width: 768px) {
-    .tagsidebar {
-      display: none;
-          
-      }
-
-      .duabodycontent {
-          text-align: center;
-      }
-  }
 
 
 
@@ -63,9 +46,41 @@
       border-radius: 10px;
   }
 
+ 
 
-  .tagsidebar {
+  @media only screen and (min-width: 991px) {
+
+    #tagbox img {
+      height: 100px;
+      width: 100px;
+   }
+
+   #tagbox p {
+     font-size: 28px;
+     float: right;
+     margin-top:20px;
+     margin-right: 20px;
+   }
+
+   #searchboxsmall {
+    display:none;
+  }
+  }
+
+
+  #tagsidebar {
     background-color: #2faf9a;
+    padding:10px;
+    float: left;
+    width:33%;
+  }
+
+  .duacontentbody {
+    width: 67%;
+    float: right;
+    text-align: center;
+    padding: 10px 20px;
+  
   }
   .dua_title{
     font: Normal 50px/66px SolaimanLipi;
@@ -107,8 +122,8 @@
   }
 
   #duatagbox {
-      height: 270px;
-      width: 250px;
+      height: 200px;
+      width: 180px;
       padding: 20px;
       margin: 20px;
       text-align: center;
@@ -119,13 +134,13 @@
   }
 
   #duatagbox img {
-    margin-top: 30px;
+    margin-top: 10px;
   }
 
   #duatagbox p{
       font-size: 30px;
       text-align: center;
-      margin-top: 55px;
+      margin-top: 10px;
   }
 
   .fa-home {
@@ -145,12 +160,26 @@
      color: #fff;
   }
 
+  .previousdua {
+      position: fixed;
+      top: 180px;
+      right: 60px;
+  }
+
+  .nextdua {
+    position: fixed;
+    top: 180px;
+    right: 20px;
+}
+
   #fixedbutton {
     position: fixed;
     bottom: 20px;
     right: 20px; 
 }
+
  
+
  #searchbox input[type=text] {
     top: 37px;
     width: 500px;
@@ -165,6 +194,7 @@
 
       letter-spacing: 0px;
       color: #7DD9B0;
+      padding-left: 30px;
       opacity: 1;
   }
 
@@ -173,3 +203,145 @@
 
     font-size: 30px;
   }
+
+
+  @media only screen and (max-width: 992px) {
+    #duazikrnavbar {
+      height: auto;
+      background-color: #2EAA92;  
+      
+      }
+  
+    .navtext {
+
+    font-size: 20px;
+    }
+    
+    #tagbox {
+      height:70px;
+      text-align: center;
+    }
+
+    #tagbox img {
+      display: none;
+    }
+    #tagbox p {
+       align-self:center;
+    }
+
+    #duatagbox {
+      height: 170px;
+      width: 150px;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+      background: #55D4B2 0% 0% no-repeat padding-box;
+      box-shadow: 0px 6px 6px #00000029;
+      border-radius: 20px;
+      opacity: 1;
+  }
+
+  #duatagbox img {
+    margin-top: 20px;
+    height: 70px;
+    width: 70px;
+  }
+
+  #duatagbox p{
+      font-size: 20px;
+      text-align: center;
+      margin-top: 30px;
+  }
+
+    .dua_title{
+      font: Normal SolaimanLipi;
+      font-size: 24px;
+      letter-spacing: 0px;
+      color: #fff;
+      opacity: 1;
+    }
+  
+    .duaarabic {
+      font-family:adobe arabic;
+      font-size: 20px;
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 1;
+    }
+  
+    .duatranslation {
+      font: Normal SolaimanLipi;
+      font-size: 18px;
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 1;
+    }
+  
+    .duatranslitaration {
+      text-align: center;
+      font: Normal  SolaimanLipi;
+      font-size: 17px;
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 0.8;
+    }
+  
+    .duareference {
+  
+      text-align: center;
+      font: Normal SolaimanLipi;
+      font-size: 16px;
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 0.8;
+    }
+
+    #searchbox {
+      display:none;
+    }
+
+    #searchboxsmall input[type=text] {
+      top: 37px;
+      width: 80%;
+      height: 50px;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      font-size: 18px;
+      border-radius: 0px;
+      opacity: 1;
+      
+    }
+  
+    #searchboxsmall ::placeholder{
+  
+        letter-spacing: 0px;
+        color: #7DD9B0;
+        padding-left: 30px;
+        opacity: 1;
+    }
+
+    .nextdua {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+  }
+  .previousdua {
+    position: fixed;
+    top: 100px;
+    right: 60px;
+}
+
+}
+
+@media only screen and (max-width: 568px) {
+#tagsidebar {
+  display: none;
+      
+  }
+
+  .duacontentbody {
+    width: 100%;
+    text-align: center;
+  
+  }
+
+}

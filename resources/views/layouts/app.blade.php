@@ -102,6 +102,17 @@
                                 </div>
                             </li>
                         @endguest
+
+                        <li class="nav-item">
+                            <form  method="GET" action=" {{url('/search')}} ">
+                                @csrf
+                                <div id="searchboxsmall">
+                                    <input  type="text" class="form-control" name="search"
+                                    placeholder="Search here">
+                                </div>
+                        
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>

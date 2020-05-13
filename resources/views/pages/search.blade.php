@@ -8,7 +8,7 @@
 <div class="row">
  @include('inc.tagsidebar')
 
- <div class="col-8 pt-4">
+ <div class="duacontentbody">
   @foreach ($duasearch as $dua)
   <div class="col-12">
   

@@ -6,49 +6,43 @@
 
  @include('inc.tagsidebar')
 
-  <div class="col-md-8  mt-5 duabodycontent">
-    <div class="navigation-wrap justify-content-between d-flex">
-        <div class="float-left">
-            @if (isset($previous))
-            <a class="prev" href="{{route('duas.show',$previous->slug)}} "> <i class="fa fa-chevron-left fa-3x" aria-hidden="true"></i> </a>
-            @endif
-        </div>
-        <div class='float-right'>
-            @if(isset($next))
-            <a class="next" href="{{route('duas.show',$next->slug)}} "><i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i></a>
-            @endif
-        </div>
-    </div>
+  <div class="duacontentbody">
 
 
-    <div class="d-flex justify-content-center p-2" >
+    <div class="text-center" >
         <p class="dua_title"> {{$dua->title}} </p>
         
     </div>
-    {{-- <div class="d-flex justify-content-center py-1" >
-        @foreach ($dua->tags as $tag)
-        <h4 class="p-2"> <span class="btn btn-primary btn-sm"> {{$tag->name}} </span> </h4>
-        @endforeach
-    </div> --}}
 
-    <div class="d-flex justify-content-center p-2">
+    <div class="text-center">
         <div class="duaarabic"> {{$dua->arabic}}  </div>
     </div>
 
-    <div class="d-flex justify-content-center p-2">
+    <div class="text-center">
         <p class="duatranslation"> {{$dua->translation}} </p>
     </div>
 
-    <div class="d-flex justify-content-center p-2">
+    <div class="text-center">
         <p class="duatransliteration"> {{$dua->transliteration}} </p>
     </div>
   
-    <div class="d-flex justify-content-center p-2">
+    <div class="text-center">
         <p class="duareference">{{$dua->reference}} </p> 
     </div>
 
     <div id="fixedbutton">
         <i class="fa fa-play-circle fa-3x" aria-hidden="true"></i>
+    </div>
+
+    <div class="previousdua">
+        @if (isset($previous))
+        <a href="{{route('duas.show',$previous->slug)}} "> <i class="fa fa-chevron-left fa-3x" aria-hidden="true"></i> </a>
+        @endif
+    </div>
+    <div class='nextdua'>
+        @if(isset($next))
+        <a href="{{route('duas.show',$next->slug)}} "><i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i></a>
+        @endif
     </div>
 
     @admin
