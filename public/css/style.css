@@ -50,10 +50,7 @@
 
   @media only screen and (min-width: 991px) {
 
-    #tagbox img {
-      height: 100px;
-      width: 100px;
-   }
+  
 
    #tagbox p {
      font-size: 28px;
@@ -222,7 +219,7 @@
       text-align: center;
     }
 
-    #tagbox img {
+    #tagboxsvg {
       display: none;
     }
     #tagbox p {

@@ -29,7 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-light " id="duazikrnavbar">
             <div class="container">
                 <a  class="navbar-brand" href="{{ url('/') }}">
-                    <i class="fa fa-home fa-3x " aria-hidden="true"></i> 
+                    <i class="fa fa-home fa-2x " aria-hidden="true"></i> 
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
                     
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link navtext" href="{{ route('allduas') }}">All Duas</a>
+                            <a class="nav-link navtext" href="{{ route('allduas') }}">সব দোয়া</a>
                         </li>
                         @if(Auth::check())
                         @if(Auth::user()->role_id == 1)
@@ -58,7 +58,7 @@
                                 @csrf
                                 <div id="searchbox">
                                     <input  type="text" class="form-control" name="search"
-                                    placeholder="Search here">
+                                    placeholder="এখানে খুঁজুন">
                                 </div>
                         
                             </form>
@@ -76,11 +76,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link navtext" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link navtext" href="{{ route('login') }}">{{ __('লগইন') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link navtext" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link navtext" href="{{ route('register') }}">{{ __('রেজিষ্টার') }}</a>
                                 </li>
                             @endif
                         @else
@@ -108,7 +108,7 @@
                                 @csrf
                                 <div id="searchboxsmall">
                                     <input  type="text" class="form-control" name="search"
-                                    placeholder="Search here">
+                                    placeholder="এখানে খুঁজুন">
                                 </div>
                         
                             </form>

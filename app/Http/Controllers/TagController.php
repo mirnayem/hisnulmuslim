@@ -39,7 +39,7 @@ class TagController extends Controller
     {
         $this->validate($request, [
             'name' => "required|unique:tags|min:3 ",
-            'photo' => "image|mimes:png|max:512"
+            'photo' => "image|mimes:png,svg,jpg|max:512"
           
         ]); 
 
@@ -97,7 +97,7 @@ class TagController extends Controller
     {
         $this->validate($request, [
             'name' =>"min:3 ",
-            'photo' => "image|mimes:png|max:512"
+            'photo' => "image|mimes:png,svg,jpg|max:512"
           
         ]); 
 

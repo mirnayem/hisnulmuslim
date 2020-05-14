@@ -8,7 +8,9 @@
     
         <div id="duatagbox" >
 
-            <img class="rounded-circle" height="105px" width="105px" src="/images/tags/{{$tag->id}}.png"/>
+           <div id="tagsvg">
+            {!! file_get_contents('images/tags/'.$tag->id.'.png') !!}
+           </div>
            
            <p> {{$tag->name}} </p> 
            
