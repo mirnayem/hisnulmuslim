@@ -40,7 +40,7 @@
                     
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link navtext" href="{{ route('allduas') }}">সব দোয়া</a>
+                            <a class="nav-link navtext" href="{{ route('allduas') }}">সব দো‘আ</a>
                         </li>
                         @if(Auth::check())
                         @if(Auth::user()->role_id == 1)

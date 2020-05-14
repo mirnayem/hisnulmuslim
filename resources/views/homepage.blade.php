@@ -9,7 +9,7 @@
  @include('inc.tagsidebar')
 
   <div class="duacontentbody">
-    <h1 class="text-center pb-4">All Duas</h1>
+    <h1 class="text-center pb-4">সব দো‘আ</h1>
     @foreach ($duas as $dua)
   
     
