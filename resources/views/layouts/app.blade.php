@@ -24,7 +24,7 @@
 
     @yield('css')
 </head>
-<body id="duazikr" class="overflow-hidden">
+<body id="duazikr">
     <div id="app">
     
         <nav class="navbar navbar-expand-sm navbar-light" id="duazikrnavbar">

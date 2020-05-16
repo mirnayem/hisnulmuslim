@@ -48,9 +48,7 @@
      
   }
 
-  #singletagsvg svg{
-    stroke-width: 1;
-  }
+ 
 
  
 
@@ -394,8 +392,23 @@
 }
 
 }
+@media only screen and (min-width: 568px)
+{
+
+   body {
+     overflow:hidden;
+   }
+
+}
 
 @media only screen and (max-width: 568px) {
+body {
+  overflow: auto;
+}
+#duazikrnavbar {
+  height: auto;
+}
+
 #tagsidebar {
   display: none;
       
@@ -404,7 +417,20 @@
   .duacontentbody {
     width: 100%;
     text-align: center;
+    overflow-y: hidden;
+    position: relative;
+    top:auto;
   
   }
+
+  #singletagsvg {
+    display: none;
+  }
+  #searchboxsmall input[type=text] {
+    
+    margin-left: 0px;
+    
+  }
+ 
 
 }
