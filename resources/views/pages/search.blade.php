@@ -13,7 +13,7 @@
   <div class="col-12">
   
    <div class="duatitle">
-     <h3 class="card-title"> <a href=" {{route('duas.show', $dua->slug)}} ">{{$dua->title}}</a></h3>
+      <a href=" {{route('duas.show', $dua->slug)}} ">{{$dua->title}}</a>
    </div>
   
  </div>

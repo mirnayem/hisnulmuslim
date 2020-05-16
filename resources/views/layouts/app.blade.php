@@ -24,9 +24,10 @@
 
     @yield('css')
 </head>
-<body id="duazikr">
+<body id="duazikr" class="overflow-hidden">
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light " id="duazikrnavbar">
+    
+        <nav class="navbar navbar-expand-sm navbar-light" id="duazikrnavbar">
             <div class="container">
                 <a  class="navbar-brand" href="{{ url('/') }}">
                     <i class="fa fa-home fa-2x " aria-hidden="true"></i> 

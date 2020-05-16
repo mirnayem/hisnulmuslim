@@ -14,6 +14,7 @@
 // use App\User;
 // Route::view('vuewelcome', 'vue.welcome');
 // Route::view('vuetags', 'vue.tags');
+Route::view('/test', 'test');
 
 Route::view('/allduas', 'homepage')->name('allduas');
 Route::view('/', 'welcome');
