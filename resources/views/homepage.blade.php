@@ -13,9 +13,11 @@
     @foreach ($duas as $dua)
   
     
+      <a href=" {{route('duas.show', $dua->slug)}} ">
      <div class="duatitle">
-        <a href=" {{route('duas.show', $dua->slug)}} ">{{$dua->title}}</a>
+      {{$dua->title}}
      </div>
+     </a>
   
     @endforeach
   </div>

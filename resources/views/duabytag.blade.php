@@ -12,10 +12,12 @@
     <h1 class="text-center pb-4"> <span id="singletagsvg"> {!! file_get_contents('images/tags/'.$tag->id.'.png') !!} </span> {{$tag->name}}</h1>
     @foreach ($duasbytag as $dua)
     
-    
+     <a href=" {{route('duas.show', $dua->slug)}} ">
      <div class="duatitle">
-       <a href=" {{route('duas.show', $dua->slug)}} ">{{$dua->title}}</a>
+      {{$dua->title}}
      </div>
+     </a>
+ 
     
   
   

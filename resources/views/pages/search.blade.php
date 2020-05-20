@@ -11,11 +11,11 @@
  <div class="duacontentbody">
   @foreach ($duasearch as $dua)
   <div class="col-12">
-  
+  <a href=" {{route('duas.show', $dua->slug)}} ">
    <div class="duatitle">
-      <a href=" {{route('duas.show', $dua->slug)}} ">{{$dua->title}}</a>
+      {{$dua->title}}
    </div>
-  
+  </a>
  </div>
 
   @endforeach

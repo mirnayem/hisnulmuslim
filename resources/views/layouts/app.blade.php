@@ -131,6 +131,12 @@
    
 
 </body>
-
+<script>
+$(document).ready(function(){
+$('.tagbox').click(function() {
+   
+});
+});
+</script>
 
 </html>

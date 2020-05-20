@@ -13,6 +13,8 @@
       text-decoration: none;
   }
 
+
+
   #duazikrnavbar {
       height: 120px;
       background-color: #2EAA92;
@@ -40,14 +42,20 @@
 }
 
 
-  #tagbox {
+  .tagbox {
       margin: 16px 0px;
       background-color: #55D4B2;
       padding: 16px 20px;
       border-radius: 10px;
      
   }
-
+ 
+  .activetagbox {
+    margin: 16px 0px;
+    background-color: #800;
+    padding: 16px 20px;
+    border-radius: 10px;
+  }
  
 
  
@@ -56,7 +64,7 @@
 
   
 
-   #tagbox p {
+   .tagbox p {
      font-size: 28px;
      float: right;
      margin-top:20px;
@@ -109,6 +117,7 @@
     letter-spacing: 0px;
     color: #fff;
     opacity: 1;
+    padding:20px 4px 60px 4px;
   }
 
   .duaarabic {
@@ -117,6 +126,8 @@
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
+    padding:20px 4px;
+
   }
 
   .duatranslation {
@@ -124,6 +135,7 @@
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
+    padding:10px 4px;
   }
 
   .duatranslitaration {
@@ -132,6 +144,7 @@
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 0.8;
+    padding:10px 4px;
   }
 
   .duareference {
@@ -141,6 +154,7 @@
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 0.8;
+    padding:10px 4px;
   }
 
   #duatagbox {
@@ -276,7 +290,7 @@
     
     }
     
-    #tagbox {
+    .tagbox {
       height:70px;
       text-align: center;
     }
@@ -284,7 +298,7 @@
     #tagboxsvg {
       display: none;
     }
-    #tagbox p {
+    .tagbox p {
        align-self:center;
     }
 
