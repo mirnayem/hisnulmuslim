@@ -132,11 +132,10 @@
 
 </body>
 <script>
-$(document).ready(function(){
-$('.tagbox').click(function() {
-   
+  $(".tagbox").click(function() {
+  $(this).addClass('clickedtagbox');
 });
-});
+
 </script>
 
 </html>

@@ -1,6 +1,7 @@
 <div id="tagsidebar">
     
         @foreach ($tags as $tag)
+        
         <a href=" {{route('duatag', $tag)}}">
    
         <div class="tagbox">
@@ -8,6 +9,7 @@
         </div>   
     
         </a>  
+       
         @endforeach
 
 </div>

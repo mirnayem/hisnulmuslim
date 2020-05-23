@@ -50,13 +50,9 @@
      
   }
  
-  .activetagbox {
-    margin: 16px 0px;
-    background-color: #800;
-    padding: 16px 20px;
-    border-radius: 10px;
+  .clickedtagbox {
+    color:orange;
   }
- 
 
  
 

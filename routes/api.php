@@ -21,6 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/duas' , 'ApiController@getAllDua');
 Route::get('/duas/{id}' , 'ApiController@getOneDua');
 
+Route::get('/all', 'ApiController@all_data');
+Route::get('/storedata', 'ApiController@store_data');
+Route::get('/downloaddata', 'ApiController@download_data');
+
 
 Route::get('/tags' , 'ApiController@getAllTag');
 Route::get('/tags/{id}' , 'ApiController@getOneTag');
