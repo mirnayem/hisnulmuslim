@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Dua;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -73,10 +74,12 @@ class ApiController extends Controller
     {
          $tags = Tag::all();
          $duas = Dua::all();
+         $duatags = DB::table('dua_tag')->get();
          
          $data = [
            'tags' => $tags,
            'duas' => $duas,
+           'dua_tag' => $duatags,
          ];
 
          return $data;
@@ -84,12 +87,14 @@ class ApiController extends Controller
 
     public function store_data()
     {
-         $tags = Tag::all();
+        $tags = Tag::all();
          $duas = Dua::all();
+         $duatags = DB::table('dua_tag')->get();
          
          $data = [
            'tags' => $tags,
            'duas' => $duas,
+           'dua_tag' => $duatags,
          ];
 
          Storage::disk('public')->put('duas.json', json_encode($data));
@@ -97,7 +102,15 @@ class ApiController extends Controller
 
     public function download_data()
     {
-       
+        $tags = Tag::all();
+        $duas = Dua::all();
+        $duatags = DB::table('dua_tag')->get();
+        
+        $data = [
+          'tags' => $tags,
+          'duas' => $duas,
+          'dua_tag' => $duatags,
+        ];
          $file= public_path("/storage/"). "duas.json";
 
          $headers = array(

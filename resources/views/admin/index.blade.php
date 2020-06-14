@@ -27,7 +27,19 @@
 
         <div class="p-2">
 
-            <a name="" id="" class="btn btn-warning mr-2" href=" {{route('tags.index')}} " role="button">All Tags</a>
+            <a name="" id="" class="btn btn-success mr-2" href=" {{route('tags.index')}} " role="button">All Tags</a>
+        </div>
+
+
+        <div class="p-2">
+
+            <a name="" id="" class="btn btn-secondary mr-2" href="/api/storedata" role="button">Store Duas</a>
+        </div>
+
+
+        <div class="p-2">
+
+            <a name="" id="" class="btn btn-secondary mr-2" href="/api/downloaddata" role="button">Download Duas</a>
         </div>
         
         </div>

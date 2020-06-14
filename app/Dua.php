@@ -21,9 +21,7 @@ class Dua extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $hidden = [
-        'pivot',
-    ];
+  
 
     // Accessors 
 
