@@ -18,4 +18,15 @@ class Tag extends Model
     {
         return $this->belongsToMany(Dua::class);
     }
+
+
+    public function parent()
+        {
+            return $this->belongsTo('App\Tag','parent_id')->where('parent_id',0)->with('parent');
+        }
+
+    public function children()
+        {
+            return $this->hasMany('App\Tag','parent_id')->with('children');
+        }
 }

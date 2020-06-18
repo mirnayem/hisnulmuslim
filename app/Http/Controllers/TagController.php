@@ -143,4 +143,10 @@ class TagController extends Controller
 
        return view('duabytag', compact('duasbytag','tag'));
     }
+
+
+    public function parentTag(){
+        $data = Tag::all();
+        return $data;
+    }
 }
