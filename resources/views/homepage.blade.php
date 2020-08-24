@@ -3,7 +3,7 @@
 
 @section('content')
 
-@include('inc.add_dua_tag')
+{{-- @include('inc.add_dua_tag') --}}
    
 <div class="row">
  @include('inc.tagsidebar')

@@ -1,3 +1,6 @@
+body{
+  overflow-x: hidden;
+}
 #duazikr {
     background: #269180;
     color: #fff;
@@ -402,19 +405,10 @@
 }
 
 }
-@media only screen and (min-width: 568px)
-{
 
-   body {
-     overflow:hidden;
-   }
-
-}
 
 @media only screen and (max-width: 568px) {
-body {
-  overflow: auto;
-}
+
 #duazikrnavbar {
   height: auto;
 }
