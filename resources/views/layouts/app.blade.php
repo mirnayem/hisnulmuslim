@@ -132,9 +132,14 @@
 
 </body>
 <script>
-  $(".tagbox").click(function() {
-  $(this).addClass('clickedtagbox');
-});
+   jQuery(function($) {
+     var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+     $('#tagsidebar a').each(function() {
+      if (this.href === path) {
+       $(this).children('.tagbox').addClass('active');
+      }
+     });
+    });
 
 </script>
 
