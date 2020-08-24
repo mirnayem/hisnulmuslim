@@ -438,3 +438,12 @@ body{
  
 
 }
+
+
+li.select2-results__option {
+  color: black;
+}
+
+li.select2-selection__choice{
+  color: #000;
+}
