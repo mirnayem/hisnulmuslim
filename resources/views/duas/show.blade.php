@@ -4,7 +4,7 @@
 @section('content')
  <div class="row">
 
- @include('inc.tagsidebar')
+ @include('inc.all_dua_sidebar')
 
   <div class="duacontentbody" >
 
