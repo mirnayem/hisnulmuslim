@@ -6,9 +6,11 @@
 
  @include('inc.tagsidebar')
 
-  <div class="duacontentbody">
+  <div class="duacontentbody" >
 
+   <div data-aos="zoom-in-up" data-aos-duration="500">
 
+  
     <div class="text-center" >
         <p class="dua_title"> {{$dua->title}} </p>
         
@@ -65,7 +67,7 @@
 @endadmin
   </div>
        
-
+</div>
  
 
  </div>

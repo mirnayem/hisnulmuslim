@@ -16,7 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
@@ -32,7 +32,7 @@
                 <a  class="navbar-brand" href="{{ url('/') }}">
                     <i class="fa fa-home fa-2x " aria-hidden="true"></i> 
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -81,7 +81,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link navtext" href="{{ route('register') }}">{{ __('রেজিষ্টার') }}</a>
+                                    <a class="nav-link navtext" href="{{ route('register') }}">{{ __('রেজিস্টার') }}</a>
                                 </li>
                             @endif
                         @else
@@ -127,6 +127,7 @@
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     @yield('js')
    
 
@@ -141,6 +142,8 @@
      });
     });
 
+
+    AOS.init();
 </script>
 
 </html>

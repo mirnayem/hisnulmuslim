@@ -14,7 +14,7 @@
   
     
       <a href=" {{route('duas.show', $dua->slug)}} ">
-     <div class="duatitle">
+     <div data-aos="fade-up" class="duatitle">
       {{$dua->title}}
      </div>
      </a>
