@@ -449,10 +449,10 @@ li.select2-selection__choice{
 }
 
 
-.tagbox .active {
+.active {
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
-.tagbox .active p{
+.active p{
   color: #000;
 }
