@@ -58,8 +58,8 @@
                             <form  method="GET" action=" {{url('/search')}} ">
                                 @csrf
                                 <div id="searchbox">
-                                    <input  type="text" class="form-control" name="search"
-                                    placeholder="এখানে খুঁজুন">
+                                    <input  type="text" class="form-control" id="add" name="search"
+                                    placeholder="এখানে খুঁজুন . . . .">
                                 </div>
                         
                             </form>
@@ -108,7 +108,7 @@
                             <form  method="GET" action=" {{url('/search')}} ">
                                 @csrf
                                 <div id="searchboxsmall">
-                                    <input  type="text" class="form-control" name="search"
+                                    <input  type="text"  class="form-control" name="search"
                                     placeholder="এখানে খুঁজুন">
                                 </div>
                         

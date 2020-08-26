@@ -27,16 +27,6 @@ body{
 
 
 
-
-  .fa-search {
-    top: 50px;
-    left: 847px;
-    width: 36px;
-    height: 36px;
-    border: 3px solid #7DD9B1;
-    opacity: 1;
-  }
-
   .duatitle {
     margin: 16px 0px;
     background-color: #55D4B2;
@@ -65,17 +55,24 @@ body{
  .dua_title {
    margin: 5px 40px;
  }
+ 
 
-  @media only screen and (min-width: 991px) {
+  @media only screen and (min-width: 992px){
+    .tagbox p {
+      font-size: 28px;
+      float: right;
+      margin-top:20px;
+      margin-right: 20px;
+    }
+  }
+  @media only screen and (min-width: 568px) {
+
+    .tagbox p {
+      font-size: 24px;
+  
+    }
 
   
-
-   .tagbox p {
-     font-size: 28px;
-     float: right;
-     margin-top:20px;
-     margin-right: 20px;
-   }
 
    #searchboxsmall {
     display:none;
@@ -223,9 +220,42 @@ body{
   }
 
 
- 
+  .form-control{
+    padding-left: 20px;
+  }
 
+
+  /* #searchbox::after {
+     font-family: "FontAwesome";
+     font-weight: 900;
+     content: "\f002";
+
+  } */
+
+
+  #searchbox{
+    position: relative;
+}
+ 
+/*replace the content value with the
+corresponding value from the list below*/
+ 
+#searchbox::after {
+    content: "\f002";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #ccc;
+    font-size: 24px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+}
  #searchbox input[type=text] {
+   
     top: 37px;
     width: 350px;
     height: 50px;
@@ -234,12 +264,13 @@ body{
     border-radius: 35px;
     opacity: 1;
   }
-
+  input#add {
+    padding-left: 60px;
+  }
   #searchbox ::placeholder{
 
       letter-spacing: 0px;
       color: #7DD9B0;
-      padding-left: 30px;
       opacity: 1;
   }
 
@@ -250,10 +281,10 @@ body{
   }
   @media only screen and (max-width: 768px){
 
-    .duacontentbody {
+    /* .duacontentbody {
       padding:2px;
       margin: 0;
-    }
+    } */
 
     .duaarabic ,.duatranslation ,  .duatransliteration , .duareference {
       margin:0;
@@ -266,6 +297,7 @@ body{
   
    
   }
+
 
   @media only screen and (max-width: 992px) {
     #duazikrnavbar {
@@ -302,9 +334,6 @@ body{
      
     }
   
-    .duacontentbody {
-      padding: 4px 0px;
-    }
     
     .tagbox {
       height:70px;
