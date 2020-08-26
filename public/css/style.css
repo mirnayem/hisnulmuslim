@@ -199,9 +199,10 @@ body{
   .fa-chevron-left , .fa-chevron-right  {
     color: #026e5c;
     position: fixed;
-    top:5%;
+    top:0;
     margin: 0;
     overflow: hidden;
+    opacity: 0.5;
  }
 
  .fa-chevron-left {
@@ -247,7 +248,24 @@ body{
 
     font-size: 30px;
   }
+  @media only screen and (max-width: 768px){
 
+    .duacontentbody {
+      padding:2px;
+      margin: 0;
+    }
+
+    .duaarabic ,.duatranslation ,  .duatransliteration , .duareference {
+      margin:0;
+      padding: 20px 0px;
+    }
+    .dua_title {
+      margin-top: 0px;
+      padding: 0;
+    }
+  
+   
+  }
 
   @media only screen and (max-width: 992px) {
     #duazikrnavbar {
@@ -285,17 +303,7 @@ body{
     }
   
     .duacontentbody {
-      width: 67%;
-      float: right;
-      text-align: center;
-      padding: 10px 0px;
-      position: fixed;
-      overflow-y: scroll;
-      bottom: 0;
-      right: 0;
-      top:100px;
-     
-    
+      padding: 4px 0px;
     }
     
     .tagbox {
@@ -336,10 +344,10 @@ body{
 
     .dua_title{
       font: Normal SolaimanLipi;
-      font-size: 24px;
+      font-size: 22px;
       letter-spacing: 0px;
       color: #fff;
-      opacity: 1;
+    
     }
   
     .duaarabic {
@@ -347,7 +355,7 @@ body{
       font-size: 20px;
       letter-spacing: 0px;
       color: #FFFFFF;
-      opacity: 1;
+     
     }
   
     .duatranslation {
@@ -355,7 +363,7 @@ body{
       font-size: 18px;
       letter-spacing: 0px;
       color: #FFFFFF;
-      opacity: 1;
+     
     }
   
     .duatransliteration {
@@ -389,7 +397,7 @@ body{
       background: #FFFFFF 0% 0% no-repeat padding-box;
       font-size: 14px;
       border-radius: 0px;
-      opacity: 1;
+     
       
     }
   
