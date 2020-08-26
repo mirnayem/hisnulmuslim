@@ -422,7 +422,18 @@ body{
 
 }
 
-
+@media only screen and (max-width: 390px){
+  div#duatagbox {
+    width: 280px;
+    height: 200px;
+}
+div#tagsvg{
+  margin-top: 20px;
+}
+div#duatagbox  p {
+  margin-top: 40px;
+}
+}
 @media only screen and (max-width: 568px) {
 
 #duazikrnavbar {
