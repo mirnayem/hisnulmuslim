@@ -13,7 +13,7 @@ jQuery(function($) {
 // }, 2000);
 
 var element = $(".active");
-$('#tagsidebar').animate({ scrollTop: element.offset().top+120});
+$('#tagsidebar').animate({ scrollTop: element.offset().top -200} , 0);
 
   
    });
